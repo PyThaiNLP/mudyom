@@ -24,8 +24,6 @@ mudyom-cli --input "..." --dictionary "..." --output "..."
 ```
 
 ## Acknowledgements
-- The implementation of this module is majorily drawn from [Wongnai's post][post], written by 
-- 
-- 
+- The implementation of this module is majorily drawn from [Wongnai's post][post], written by Noom..
+
 [post]: https://life.wongnai.com/wongnai-search-improvement-using-machine-learning-part1-e0777b65979e
-- Noom, ...
