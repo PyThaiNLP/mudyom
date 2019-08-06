@@ -10,15 +10,20 @@ mudyom-cli --input "..." --dictionary "..." --output "..."
 ```
 **Remark:** Vocabs in the dictionary should be sorted from longest to shortest one.
 
+If not, you can use the command line below to sort the dictionary:
+```
+$ cat dictionary.txt | awk '{ print length, $0 }' | sort -g -r | cut -d" " -f2  > sorted_dictionary.txt
+```
+
 ### Example
 ```
 # input.txt
 ฉัน|ขวัญ|หนี|ตี|ฝ่อ|ใจ|สลาย
 
 # dictionary.txt
-ตีฝ่อ
 หลบลี้
 คิดถึง
+ตีฝ่อ
 
 # output.txt
 ฉัน|ขวัญ|หนี|ตีฝ่อ|ใจ|สลาย
