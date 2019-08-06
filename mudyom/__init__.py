@@ -2,7 +2,7 @@ import re
 
 import numpy as np
 
-from trie import Trie
+from mudyom.trie import Trie
 
 DEFAULT_SEPARATOR = "|"
 
