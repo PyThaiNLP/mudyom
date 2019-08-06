@@ -30,6 +30,7 @@ $ cat dictionary.txt | awk '{ print length, $0 }' | sort -g -r | cut -d" " -f2  
 ```
 
 ## Acknowledgements
-- The implementation of this module is majorily drawn from [Wongnai's post][post], written by Noom..
+- The implementation of this module is majorily drawn from [Wongnai's post][post], written by [Ekkalak Thongthanomkul][noom].
 
 [post]: https://life.wongnai.com/wongnai-search-improvement-using-machine-learning-part1-e0777b65979e
+[noom]: https://github.com/Ekkalak-T
