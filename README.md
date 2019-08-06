@@ -6,7 +6,7 @@ MudYom is a module for pre/post-processing text. It combines, aka มัด, wor
 
 ## Usage (WIP)
 ```
-mudyom-cli --input "..." --dictionary "..." --output "..."
+$ mudyom-cli --input "..." --dictionary "..." --output "..."
 ```
 **Remark:** Vocabs in the dictionary should be sorted from longest to shortest one.
 
