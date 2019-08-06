@@ -2,7 +2,27 @@ import re
 
 import numpy as np
 
+from trie import Trie
+
 DEFAULT_SEPARATOR = "|"
+
+class MudYom:
+    def __init__(self, vocabs):
+        self.trie = _build_trie_from_vocabs(vocabs)
+        self.trie_regex = _build_regex_from_trie(self.trie)
+    
+    def yom(self, txt):
+        new_txt = gazetteer(txt,  self.trie_regex)
+
+        return new_txt
+
+def _build_trie_from_vocabs(vocabs):
+    trie = Trie()
+
+    for v in vocabs:
+        trie.add(v)
+
+    return trie
 
 def _load_dict(filepath):
     vocabs = []
@@ -11,8 +31,10 @@ def _load_dict(filepath):
         for v in f:
             vocabs.append(v.strip())
 
-    # sort longest last
     return vocabs
+
+def _build_regex_from_trie(trie):
+    return re.compile(r'(' + trie.pattern() + ')', re.I)
 
 def _binary_representation(txt, tokens):
     reps = [1] + [0] * (len(txt) - 1)
@@ -24,9 +46,9 @@ def _binary_representation(txt, tokens):
 
     return reps
 
-def _find_matches(txt, vocab):
+def _find_matches(txt, rx):
     matches = []
-    for m in re.finditer(vocab, txt):
+    for m in re.finditer(rx, txt):
         matches.append((m.start(), m.end()))
 
     return matches
@@ -39,15 +61,14 @@ def _find_starting_word_position(bin_reps):
 
     return positions
 
-def gazetteer(tokenized_txt, dictionary, sep=DEFAULT_SEPARATOR):
+def gazetteer(tokenized_txt, rx, sep=DEFAULT_SEPARATOR):
     txt = tokenized_txt.replace(sep, "")
     bin_reps = np.array(_binary_representation(txt, tokenized_txt.split(sep)))
 
-    for v in dictionary:
-        matches = _find_matches(txt, v)
-        for st_ix, end_ix in matches:
-            bin_reps[(st_ix+1):(end_ix)] = 0
-            bin_reps[st_ix] = 1
+    matches = _find_matches(txt, rx)
+    for st_ix, end_ix in matches:
+        bin_reps[(st_ix+1):(end_ix)] = 0
+        bin_reps[st_ix] = 1
 
     starting_pos = _find_starting_word_position(bin_reps)
 

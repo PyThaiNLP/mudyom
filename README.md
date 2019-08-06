@@ -1,10 +1,13 @@
-# Gozza
-A module for post-processing tokenized text with a user-defined dictionary.
+# MudYom (มัดย้อม)
+MudYom is a module for pre/post-processing text. It combines, aka มัด, words that should be together into one token. This process is done according to a user-defined dictionary.
+
 
 ## Usage (WIP)
 ```
-gazzzz --input "..." --dictionary "..." --output "..."
+mudyom-cli --input "..." --dictionary "..." --output "..."
 ```
+****
+**Remark:** Vocabs in the dictionary should be sorted from longest to shortest one.
 
 ### Example
 ```
@@ -21,4 +24,8 @@ gazzzz --input "..." --dictionary "..." --output "..."
 ```
 
 ## Acknowledgements
-- ...
+- The implementation of this module is majorily drawn from [Wongnai's post][post], written by 
+- 
+- 
+[post]: https://life.wongnai.com/wongnai-search-improvement-using-machine-learning-part1-e0777b65979e
+- Noom, ...

@@ -1,0 +1,24 @@
+#! /usr/bin/env python
+
+from fire import Fire
+
+import mudyom
+
+def main(input, dictionary, output):
+    print("Input: %s" % input)
+    print("Dictionary: %s" % dictionary)
+
+    vocabs = mudyom._load_dict(dictionary)
+    my = mudyom.MudYom(vocabs)
+
+    with open(input, "r") as fin,\
+        open(output, "w") as fout:
+        for l in fin:
+            l = l.strip()
+            gazz = my.yom(l)
+            fout.write("%s\n" % gazz)
+
+    print("Save output to %s" % output)
+
+if __name__ == "__main__":
+    Fire(main)
