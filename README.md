@@ -40,7 +40,8 @@ $ cat dictionary.txt | awk '{ print length, $0 }' | sort -g -r | cut -d" " -f2  
 | Name | Vocaburary Size | Author |
 |---|---|---|
 | [Food and Restuarant menues][wongnai]| ~400k |  Wongnai  |
-| Common Name, Brand, Title, ...| .. | ... |
+| [Names and Acronyms][commonnames]| ~2k | Thachaparn Bunditlurdruk |
+| Name Entity in BEST | .. | .. |
 
 ## Acknowledgements
 - The implementation of this module is majorily drawn from [Wongnai's post][post], written by [Ekkalak Thongthanomkul][noom].
@@ -48,3 +49,4 @@ $ cat dictionary.txt | awk '{ print length, $0 }' | sort -g -r | cut -d" " -f2  
 [post]: https://life.wongnai.com/wongnai-search-improvement-using-machine-learning-part1-e0777b65979e
 [noom]: https://github.com/Ekkalak-T
 [wongnai]: https://github.com/wongnai/wongnai-corpus/blob/master/search/food_dictionary.txt
+[commonnames]: https://gist.github.com/heytitle/a42a1ff819c61052ecd9aa3d1593371a
