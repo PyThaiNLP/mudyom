@@ -37,9 +37,10 @@ $ cat dictionary.txt | awk '{ print length, $0 }' | sort -g -r | cut -d" " -f2  
 ```
 
 ## Public Dictionaries
-| Name | Vocaburary Size | Description |
+| Name | Vocaburary Size | Author |
 |---|---|---|
-| [Food and Restuarant menues][wongnai]| ~400k | รายชื่ออาหารและร้าน จัดทำโดย Wongnai  
+| [Food and Restuarant menues][wongnai]| ~400k |  Wongnai  |
+| Common Name, Brand, Title, ...| .. | ... |
 
 ## Acknowledgements
 - The implementation of this module is majorily drawn from [Wongnai's post][post], written by [Ekkalak Thongthanomkul][noom].
